@@ -42,4 +42,6 @@ int main(){
 	for(auto it :um){
 		cout<<it.first<<" "<<it.second<<endl;
 	}
+
+	// multimap-> not used
 }
