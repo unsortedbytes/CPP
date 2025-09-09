@@ -33,4 +33,8 @@ int main(){
 	// auto it = lower_bound(s.begin(), s.end(), 25);
 	auto it = s.lower_bound(23);
 	cout<<(*it)<<endl;
+
+	// same for map
+	map<int, int> m;
+	
 }
