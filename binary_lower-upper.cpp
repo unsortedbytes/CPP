@@ -20,6 +20,24 @@ int lower_bound(vector<int> &v, int element){
 	}
 	return -1;
 }
+int upper_bound(vector<int> &v, int element){
+	int lo = 0, hi=v.size()-1;
+	int mid;
+	while(hi-lo>1){
+		mid=(lo+hi)/2;
+		if(v[mid]<=element){
+			lo = mid +1;
+		}else{
+			hi = mid;
+		}
+	}
+	if(v[lo]>element){
+		return lo;
+	}else if (v[hi]>element){
+		returnn hi;
+	}
+	return -1;
+}
 
 int main(){
 	int n;
