@@ -15,7 +15,7 @@ int main() {
        	sort(arr.begin() , arr.end());
         bool check = true;
         for (int i = 0; i < n - 1; i++) {
-            if (abs(arr[i] - arr[i + 1]) > 1) {
+            if (arr[i+1] - arr[i] > 1) {
                 check = false;
                 break;
             }
