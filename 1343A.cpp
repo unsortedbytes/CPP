@@ -14,9 +14,6 @@ int main(){
 		int x;
 		for(int i=2;i<n;i++){
 			if(n%sumofpower(i) == 0){
-				if(sumofpower(i)!=0){
-
-				}
 				x=n/sumofpower(i);
 				break;
 			}
