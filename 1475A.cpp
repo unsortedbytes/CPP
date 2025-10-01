@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// binary -> 
+
 int main(){
 	int t;
 	cin>>t;
