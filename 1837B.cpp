@@ -9,49 +9,17 @@ int main(){
 		cin>>n;
 		string s;
 		cin>>s;
-		int pot = 0;
 		set<int> st;
-		st.insert(0);
+		int current =0;
+		st.insert(current);
 		for(int i=0;i<n;i++){
 			if(s[i]=='<'){
-				// for(auto it:st){
-				// 	if(it > pot){
-				// 		pot=it;
-				// 		break;
-				// 	}
-
-
-				// }
-				auto it = st.upper_bound(pot);
-
-				// while(it!=st.end()){
-				// 	if(*it>pot){
-				// 		break;
-				// 	}
-				// 	it++;
-				// }
-				if(it!=st.end()){
-					pot=*it;
-				}else{
-					pot++;
-				}				
+				current++;
 			}else{
-				auto it = st.upper_bound(pot);
-
-				while(it!=st.end()){
-					if(*it<pot){
-						break;
-					}
-					it++;
-				}
-				if(it!=st.begin()){
-					pot=*it;
-				}else{
-					pot--;
-				}
+				current--;
 			}
-			st.insert(pot);
+			st.insert(current);
 		}
-		cout<<st.size()<<endl;	
+		cout<<st.size()<<endl;
 	}
 }
