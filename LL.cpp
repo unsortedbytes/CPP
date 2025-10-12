@@ -91,5 +91,5 @@ int main(){
 	cout<<"Size of head is "<<lengthofLL(head)<<endl<<endl;
 
 	// checking
-	cout<<"Is exit or not "<<checkifexistornot(head, 3)<<endl;
+	cout<<"Is exit or not  "<<checkifexistornot(head, 3)<<endl;
 }
