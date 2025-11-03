@@ -126,12 +126,78 @@ Node* removeEl(Node* head, int el){
 	return head;
 }
 
+Node* addhead(Node* head , int el){
+	Node* temp = new Node(el);
+	temp->next = head;
+	return temp;
+}
+
+Node* addTail(Node* head, int val ){
+	if(head == NULL){
+		return new Node(val); 
+	}
+	Node* temp = head;
+	while(temp->next!=nullptr){
+		temp= temp->next;
+	}
+	Node* neto = new Node(val);
+	temp->next = neto;
+	return head;
+}
+
+Node* addEll(Node* head, int el, int k){
+	if(head==nullptr){
+		if(k==1) return new Node(el);
+		else return head;
+	}
+	if(k==1){
+		Node* temp = new Node(el, head);
+		return temp;
+	}
+
+	int cnt=0;
+	Node* temp = head;
+	while(temp!=nullptr){
+		cnt++;
+		if(cnt==k-1){
+			Node* n = new Node(el);
+			n->next = temp->next;
+			temp->next = n;
+			break;
+		}
+		temp= temp->next;
+
+	}
+	return head;
+}
+
+Node* insertBeforeValue(Node* head, int el, int val){
+	if(head == NULL){
+		return NULL;
+	}
+	if(head->data == val){
+		return new Node(el, head);
+	}
+
+	Node* temp = head;
+	while(temp->next!=nullptr){
+		if(temp->next->data == val){
+			Node* x = new Node(el, temp->next);
+			temp->next = x;
+			break;
+		}
+		temp = temp->next;
+	}
+	return head;
+}
+
+
 int main(){
 
 	vector<int> arr={4, 6, 8, 2, 5};
 	Node* head = ConvertArr2LL(arr);
 	printLL(head);
-	head = removeEl(head, 8);
+	head = addEll(head, 8, 2);
 	printLL(head);
 
 }
