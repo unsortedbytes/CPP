@@ -74,5 +74,5 @@ int main(){
 
 	cout<<endl;
 	cout<< lengthOfLL(head)<<endl;
-	cout<<"Check if 4 is present or not: "<<checkIpPresent(head, 4)<<endl;
+	cout<<"Check if 4 is present or not:"<<checkIpPresent(head, 4)<<endl;
 }
