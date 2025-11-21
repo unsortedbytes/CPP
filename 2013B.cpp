@@ -7,7 +7,7 @@ int main(){
 	while(t--){
 		int n;
 		cin>>n;
-		int arr[n];
+		long long arr[n];
 		for(int i=0;i<n;i++){
 			cin>>arr[i];
 		}
