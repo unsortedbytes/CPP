@@ -1,33 +1,32 @@
-// // {
-// //     "version": "2.0.0",
-// //     "tasks": [
-// //         {
-// //             "label":"comile",
-// //             "type":"shell",
-// //             "command":"g++",
-// //             "args":[
-// //                 "--std=c++17",
-// //                 "-O",
-// //                 "${fileBasenameNoExtension}",
-// //                 "${file}"
-// //             ],
-// //             "group":{
-// //                 "kind": "build",
-// //                 "isDefault": true
-// //             }
-// //         },
-// //         {
-// //             "label": "compile and run",
-// //             "type": "shell",
-// //             "command":"g++ --std=c++17 -o ${fileBasenameNoExtension}",
-// //             "group": {
-// //                 "kind": "build",
-// //                 "isDefault": true
-// //             }
-// //         }
-// //     ]
-// // }
-
+// // // // {
+// // // //     "version": "2.0.0",
+// // // //     "tasks": [
+// // // //         {
+// // // //             "label":"comile",
+// // // //             "type":"shell",
+// // // //             "command":"g++",
+// // // //             "args":[
+// // // //                 "--std=c++17",
+// // // //                 "-O",
+// // // //                 "${fileBasenameNoExtension}",
+// // // //                 "${file}"
+// // // //             ],
+// // // //             "group":{
+// // // //                 "kind": "build",
+// // // //                 "isDefault": true
+// // // //             }
+// // // //         },
+// // // //         {
+// // // //             "label": "compile and run",
+// // // //             "type": "shell",
+// // // //             "command":"g++ --std=c++17 -o ${fileBasenameNoExtension}",
+// // // //             "group": {
+// // // //                 "kind": "build",
+// // // //                 "isDefault": true
+// // // //             }
+// // // //         }
+// // // //     ]
+// // // // }
 // {
 //     "version": "2.0.0",
 //     "tasks": [
@@ -60,8 +59,6 @@
 //         }
 //     ]
 // }
-
-
 {
     "version": "2.0.0",
     "tasks": [
@@ -88,6 +85,114 @@
                 "kind": "build",
                 "isDefault": true
             }
+        },
+        {
+            "label": "compile (rust)",
+            "type": "shell",
+            "command": "rustc",
+            "args": [
+                "${file}",
+                "-O",
+                "-o",
+                "${fileBasenameNoExtension}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "compile and run (rust)",
+            "type": "shell",
+            "command": "rustc ${file} -O -o ${fileBasenameNoExtension} && ./${fileBasenameNoExtension} < input.txt > output.txt",
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
         }
     ]
 }
+
+// {
+//     "version": "2.0.0",
+//     "tasks": [
+//         {
+//             "label": "compile and run (cpp)",
+//             "type": "shell",
+//             "command": "g++",
+//             "args": [
+//                 "-std=c++17",
+//                 "-O2",
+//                 "${file}",
+//                 "-o",
+//                 "${fileBasenameNoExtension}"
+//             ],
+//             "group": "build",
+//             "problemMatcher": ["$gcc"],
+//             "presentation": {
+//                 "clear": true
+//             }
+//         },
+//         {
+//             "label": "compile and run (rust)",
+//             "type": "shell",
+//             "command": "rustc",
+//             "args": [
+//                 "${file}",
+//                 "-O",
+//                 "-o",
+//                 "${fileBasenameNoExtension}"
+//             ],
+//             // "problemMatcher": ["$rustc"],
+//             "presentation": {
+//                 "clear": true
+//             }
+//         },
+//         {
+//             "label": "run output",
+//             "type": "shell",
+//             "command": "./${fileBasenameNoExtension} < input.txt > output.txt"
+//         }
+//     ]
+// }
+
+
+// {
+//     "version": "2.0.0",
+//     "tasks": [
+//         {
+//             "label": "compile and run (cpp)",
+//             "type": "shell",
+//             "command": "g++",
+//             "args": [
+//                 "-std=c++17",
+//                 "-O2",
+//                 "${file}",
+//                 "-o",
+//                 "${fileBasenameNoExtension}"
+//             ],
+//             "group": "build",
+//             "problemMatcher": ["$gcc"],
+//             "presentation": {
+//                 "clear": true
+//             },
+//             "runOptions": {
+//                 "runOn": "default"
+//             }
+//         },
+//         {
+//             "label": "compile and run (rust)",
+//             "type": "shell",
+//             "command": "rustc",
+//             "args": [
+//                 "${file}",
+//                 "-O",
+//                 "-o",
+//                 "${fileBasenameNoExtension}"
+//             ],
+//             "presentation": {
+//                 "clear": true
+//             }
+//         }
+//     ]
+// }
