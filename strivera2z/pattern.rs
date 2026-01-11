@@ -21,6 +21,12 @@ fn main(){
     printpattern14(n);
     printpattern15(n);
     printpattern16(n);
+    printpattern17(n);
+    printpattern18(n);
+    printpattern19(n);
+    printpattern20(n);
+    printpattern21(n);
+    printpattern22(n);
 }
 
 fn printpattern1(n:u8){
@@ -195,6 +201,116 @@ fn printpattern16(n:u8){
         let next = ((val as u8) + i) as char;
         for j in 0..=i {
             print!("{next}");
+        }
+        println!();
+    }
+}
+fn printpattern17(n:u8){
+    let val = 'A';
+    for i in 0..n{
+        for _ in 0..(n-i-1) {
+            print!(" ");
+        }
+
+        for j in 0..(2*i + 1){
+            let mut jo =j;
+            let val = 'A';
+
+            if jo>i {
+                jo = 2*i -j;
+            }
+            print!("{}",((val as u8)+jo) as char);
+        }
+
+        for _ in 0..(n-i-1) {
+            print!(" ");
+        }
+        println!();
+    }
+}
+
+fn printpattern18(n:u8){
+    let val = 'E';
+    for i in 0..n{
+        for j in (0..=i).rev() {
+            print!("{} ", ((val as u8)-j) as char);
+        }
+        println!();
+    }
+}
+
+fn printpattern19(n:u8){
+    for i in 0..n{
+        for j in 0..(n-i){
+            print!("*");
+        }
+
+        for j in 0..(2*i){
+            print!(" ");
+        }
+
+        for j in 0..(n-i){
+            print!("*");
+        }
+        println!();
+    }
+
+    for i in 0..n{
+        for j in 0..=i{
+            print!("*");
+        }
+
+        for j in 0..((2*n)-(2*i) -2){
+            print!(" ");
+        }
+
+        for j in 0..=i{
+            print!("*");
+        }
+        println!();
+    }
+
+}
+
+fn printpattern20(n:u8){
+    for i in 0..(2*n -1) {
+        let mut io=i;
+        if io> n-1{
+            io= 2*n -i -2;
+        }
+        for _ in 0..=io{
+            print!("*");
+        }
+
+        for _ in (0..(2*(n-io-1))).rev(){
+            print!(" ");
+        }
+
+        for _ in 0..=io{
+            print!("*");
+        }
+        println!();
+    }
+}
+
+fn printpattern21(n:u8){
+    for i in 0..n{
+        for j in 0..n{
+            if i==0 || i==n-1 || j==0  || j==n-1 {
+                print!("*");
+            }else{
+                print!(" ");
+            }
+        }
+        println!();
+    }
+}
+
+fn printpattern22(n:u8){
+    for i in 0..(2*n-1){
+        for j in 0..(2*n-1){
+            let mini =i.min(j).min(2*n -2 -i).min(2*n -2-j);
+            print!("{}",n-mini);
         }
         println!();
     }

@@ -171,6 +171,110 @@ void printpattern16(int n){
         cout<<endl;
     }
 }
+void printpattern17(int n){
+    for(int i=0;i<n;i++){
+        for(int j =0;j<n-i-1;j++){
+            cout<<" ";
+        }
+
+        for(int j=0;j<2*i + 1;j++){
+            char val = 'A';
+            int jo=j;
+            if (jo>i) {
+                jo = 2*i - j ;
+            }
+            cout<<char(val + jo);
+        }
+
+        for(int j =0;j<n-i-1;j++){
+            cout<<" ";
+        }
+        cout<<endl;
+    }
+}
+void printpattern18(int n){
+    char val =  'E';
+    for (int i=0;i<n;i++){
+        for(int j = i;j>=0;j--){
+            cout<<char(val-j)<<" ";
+        }
+        cout<<endl;
+    }
+}
+void printpattern19(int n){
+    for(int i =0;i<n;i++){
+        for(int j = 0;j<n-i;j++){
+            cout<<"* ";
+        }
+
+        for(int j = 0;j<2*i;j++){
+            cout<<"  ";
+        }
+
+        for(int j = 0;j<n-i;j++){
+            cout<<"* ";
+        }
+        cout<<endl;
+    }
+    for(int i =0;i<n;i++){
+        for(int j = 0;j<=i;j++){
+            cout<<"* ";
+        }
+
+        for(int j = 0;j<2*n - 2*i-2;j++){
+            cout<<"  ";
+        }
+
+        for(int j = 0;j<=i;j++){
+            cout<<"* ";
+        }
+        cout<<endl;
+    }
+}
+void printpattern20(int n){
+    for(int i=0;i<2*n -1;i++){
+        int start = i;
+        if(start>n-1){
+            start = 2*n -i -2;
+        }
+        for(int j = 0;j<=start;j++){
+            cout<<"*";
+        }
+        for(int j = 2*(n-start-1);j>0;j--){
+            cout<<" ";
+        }
+        for(int j = 0;j<=start;j++){
+            cout<<"*";
+        }
+        cout<<endl;
+    }
+}
+void printpattern21(int n){
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            if(i==0||i==n-1||j==0||j==n-1){
+                cout<<"*";
+            }else{
+                cout<<" ";
+            }
+        }
+        cout<<endl;
+    }
+}
+void printpattern22(int n){
+    for(int i=0;i<2*n-1;i++){
+        for(int j=0;j<2*n -1;j++){
+            int top = i;
+            int bottom = 2*n - 2 -i;
+            int left = j;
+            int right = 2*n -2 -j;
+            int mini = min(min(top,bottom), min(left, right));
+            cout<<n-mini;
+        }
+        cout<<endl;
+    }
+}
+
 
 int main(){
     int n;
@@ -191,4 +295,10 @@ int main(){
     printpattern14(n);
     printpattern15(n);
     printpattern16(n);
+    printpattern17(n);
+    printpattern18(n);
+    printpattern19(n);
+    printpattern20(n);
+    printpattern21(n);
+    printpattern22(n);
 }
