@@ -39,6 +39,10 @@ void print(Node* head){
 	cout<<endl;
 }
 
+Node* removingNthelementbruteforce(Node* head, int val){
+	
+}
+
 int main(){
 	vector<int> arr = {2, 5, 2, 6, 8};
 	Node* head = convert2LL(arr);
