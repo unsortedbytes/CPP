@@ -194,6 +194,68 @@ void stockSpanProblen(){
         cout<<v[i]<<" ";
     }
 }
+void maxAreaHistogram(){
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+
+    vector<int> vr;
+    stack<int> sr;
+
+    for(int i=n-1;i>=0;i--){
+        if(sr.size() == 0){
+            vr.push_back(n);
+        }else if(sr.size()>0 && arr[sr.top()]<arr[i]){
+            vr.push_back(sr.top());
+        }else if(sr.size()>0 && arr[sr.top()]>=arr[i]){
+            while(sr.size()>0 && arr[sr.top()]>=arr[i]){
+                sr.pop();
+            }
+            if(sr.size()==0){
+                vr.push_back(n);
+            }else{
+                vr.push_back(sr.top());
+            }
+        }
+
+        sr.push(i);
+    }
+    reverse(vr.begin(), vr.end());
+    vector<int> vl;
+    stack<int> sl;
+    
+    for(int i=0;i<n;i++){
+        if(sl.size() == 0){
+            vl.push_back(-1);
+        }else if(sl.size()>0 && arr[sl.top()]<arr[i]){
+            vl.push_back(sl.top());
+        }else if(sl.size()>0 && arr[sl.top()]>=arr[i]){
+            while(sl.size()>0 && arr[sl.top()]>=arr[i]){
+                sl.pop();
+            }
+            if(sl.size()==0){
+                vl.push_back(-1);
+            }else{
+                vl.push_back(sl.top());
+            }
+        }
+
+        sl.push(i);
+    }
+
+    vector<int> area;
+    int Maxi = INT_MIN;
+    for(int i=0;i<n;i++){
+        area.push_back(arr[i]*(vr[i] - vl[i] -1));
+        Maxi = max(Maxi, (arr[i]*(vr[i] - vl[i] -1)));
+    }
+
+    cout<<"Maxi: "<<Maxi<<endl;
+
+}
 
 int main(){
     int t;
@@ -204,6 +266,7 @@ int main(){
         // solveOptNtl();
         // solveOptSsl();
         // solveOptSsr();
-        stockSpanProblen();
+        // stockSpanProblen();
+        maxAreaHistogram();
     }
 }
