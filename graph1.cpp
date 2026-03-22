@@ -13,11 +13,11 @@ using namespace std;
 vector<vector<int>> g;
 
 vector<int> visited;
-void dfs(int node){
-	visited[node]=1;
+void dfs(int node, int col){
+	visited[node]=col;
 	for(auto v:g[node]){
 		if(!visited[v]){
-			dfs(v);
+			dfs(v, col);
 		}
 	}
 }
@@ -25,8 +25,10 @@ void dfs(int node){
 void solve(){
 	int n, m;
 	cin>>n>>m;
+	g.clear();
+	visited.clear();
 	g.resize(n+1);
-	visited.resize(n+1);
+	visited.resize(n+1,0);
 	for(int i =0;i<m;i++){
 		int a,b;
 		cin>>a>>b;
@@ -36,14 +38,29 @@ void solve(){
 	}
 
 	int num_comp =0;
+	int col = 1;
 	for(int i=1;i<=n;i++){
 		if(!visited[i]){
-			dfs(i);
+			dfs(i, col);
 			num_comp++;
-			cout<<i<<" "<<num_comp<<endl;
+			col++;
+			// cout<<i<<" "<<num_comp<<endl;
 		}
 		
 	}
+	for(int i=1;i<=n;i++){
+		cout<<visited[i]<<" ";
+	}
+
+	int  no_of_comp[num_comp+1]={0};
+	for(int i=1;i<=n;i++){
+		no_of_comp[visited[i]]++;
+	} 
+	cout<<endl
+	for(int i=1;i<=num_comp;i++){
+		cout<<no_of_comp[i]<<" ";
+	}
+
 }
 
 int main(){
