@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void solve(){
+    int q;cin>>q;
+    // cin.ignore();
+    stack<int> st;
+    while(q--){
+        string s;
+        cin>>s;
+        if(s=="add"){
+            int x;cin>>x;
+            st.push(x);
+        }else if(s =="remove"){
+            if(!st.empty())st.pop();
+        }else if(s=="print"){
+            if(!st.empty()) cout<<st.top()<<endl;
+            else cout<<0<<endl;
+        }
+    }
+}
+
+signed main(){
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);cout.tie(0);
+    int t;cin>>t;
+    while(t--) solve();
+}
