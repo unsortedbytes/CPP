@@ -3,27 +3,29 @@ using namespace std;
 
 void solve(){
     int q;cin>>q;
-    multimap<string, int>m;
+    multiset<int> ms;
     while(q--){
-        string s; cin>>s;
+        string s;cin>>s;
         if(s=="add"){
-            string x;int y;cin>>x>>y;
-            m.insert({x, y});
-        }else if(s=="erase") {
-            string x;cin>>x;
-            auto it = m.find(x);
-            if(it!=m.end())m.erase(it);
-        }else if(s=="eraseall"){
-            string x;cin>>x;
-            m.erase(x);
-        }else if(s=="print"){
-            string x;cin>>x;
-            if(m.count(x)){
-                auto it = m.find(x);
-                cout<<it->second<<endl;
-            }else{
-                cout<<0<<endl;
-            }
+            int x;cin>>x;
+            ms.insert(x);
+        }else if(s=="erase"){
+            int x;cin>>x;
+            if(ms.find(x)!=ms.end())ms.erase(ms.find(x));
+        }else if(s == "eraseall"){
+            int x; cin>>x;
+            ms.erase(x);
+        }else if(s == "find"){
+            int x;cin>>x;
+            ms.find(x)!=ms.end() ? cout<<"YES"<<endl : cout<<"NO"<<endl;
+        }else if(s == "count"){
+            int x;cin>>x;
+            cout<<ms.count(x)<<endl;
+        }else if(s == "print"){
+            for(auto v:ms) cout<<v<<" ";
+            cout<<endl;
+        }else if( s=="empty"){
+            ms.clear();
         }
     }
 }
@@ -32,6 +34,6 @@ signed main(){
     ios_base::sync_with_stdio(0);
     cin.tie(0);cout.tie(0);
 
-    int t;cin>>t;
+    int t; cin>>t;
     while(t--) solve();
 }
